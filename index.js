@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
-
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -31,16 +31,15 @@ const questions = [
     },
     {
         type: 'confirm',
-        name: 'installationinstructions',
+        name: 'confirmInstructions',
         message: 'Would you like to provide installation instructions?',
-        default: true
     },
     {
         type: 'input',
         name: 'installation',
         message: 'Please provide installation instructions for your project.',
-        when: ({installationinstructions}) => {
-            if (installationinstructions) {
+        when: ({ confirmInstructions }) => {
+            if (confirmInstructions) {
                 return true;
             } else {
                 return 'Please enter your installation instructions!';
@@ -73,7 +72,7 @@ const questions = [
     },
     {   
         type: 'input',
-        name: 'test',
+        name: 'tests',
         message: 'Please provide the test instructions for your project.',
         validate: value => {
             if (value) {
@@ -83,13 +82,18 @@ const questions = [
             }
         }
     },
+    {
+        type: 'confirm',
+        name: 'confirmlicense',
+        message: 'Would you to select a license used?',
+    },
     {   
         type: 'list',
         name: 'license',
         message: 'Please select the license used in the application.',
-        choices: ["MIT", "GPL", "BSD", "Apache", "N/A"],
-        validate: value => {
-            if (value) {
+        choices: ["MIT", "GPL", "BSD", "Apache"],
+        when: confirmLicense => {
+            if (confirmLicense) {
                 return true;
             } else {
                 return 'Please select one!';
@@ -129,7 +133,14 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    try {
+        const data = inquirer.prompt(questions);
+        writeToFile('./README.md', generateMarkdown(data));
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 // Function call to initialize app
 init();
