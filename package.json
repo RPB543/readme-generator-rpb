@@ -1,0 +1,22 @@
+{
+  "name": "readme-generator-rpb",
+  "version": "1.0.0",
+  "description": "create readme file in Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RPB543/readme-generator-rpb.git"
+  },
+  "author": "RPB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RPB543/readme-generator-rpb/issues"
+  },
+  "homepage": "https://github.com/RPB543/readme-generator-rpb#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
