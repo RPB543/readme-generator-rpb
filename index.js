@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
+const path = require("path");
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
@@ -42,7 +43,7 @@ const questions = [
             if (confirmInstructions) {
                 return true;
             } else {
-                return 'Please enter your installation instructions!';
+                return false;
             }
         }
     },
@@ -92,11 +93,11 @@ const questions = [
         name: 'license',
         message: 'Please select the license used in the application.',
         choices: ["MIT", "GPL", "BSD", "Apache"],
-        when: confirmLicense => {
+        when: ({confirmLicense}) => {
             if (confirmLicense) {
                 return true;
             } else {
-                return 'Please select one!';
+                return false;
             }
         }
     },
@@ -117,26 +118,26 @@ const questions = [
         name: 'email',
         message: 'What is your email?',
         validate: value => {
-            if (value) {
+            const pass = value.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/)
+            if(pass) {
                 return true;
-            } else {
-                return 'Please enter your email!';
             }
+            return "Please enter a valid email."
         }
     }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeToFile(fileName, data, (err) =>
-    err ? console.log(err) : console.log(success));
+    return fs.writeFileSync(path.join(__dirname,fileName), data)
 }
 
 // TODO: Create a function to initialize app
-function init() {
+async function init() {
     try {
-        const data = inquirer.prompt(questions);
-        writeToFile('./README.md', generateMarkdown(data));
+        const data = await inquirer.prompt(questions);
+        console.log(data);
+        writeToFile('README.md', generateMarkdown(data));
     } catch (err) {
         console.log(err);
     }
