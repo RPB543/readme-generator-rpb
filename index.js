@@ -93,8 +93,8 @@ const questions = [
         name: 'license',
         message: 'Please select the license used in the application.',
         choices: ["MIT", "GPL", "BSD", "Apache"],
-        when: ({confirmLicense}) => {
-            if (confirmLicense) {
+        when: ({confirmlicense}) => {
+            if (confirmlicense) {
                 return true;
             } else {
                 return false;
@@ -136,8 +136,8 @@ function writeToFile(fileName, data) {
 async function init() {
     try {
         const data = await inquirer.prompt(questions);
-        console.log(data);
         writeToFile('README.md', generateMarkdown(data));
+        console.log("Success! 🤓 You created a README.md")
     } catch (err) {
         console.log(err);
     }
