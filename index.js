@@ -33,6 +33,7 @@ const questions = [
     {
         type: 'confirm',
         name: 'confirmInstructions',
+        default: true,
         message: 'Would you like to provide installation instructions?',
     },
     {
@@ -83,18 +84,13 @@ const questions = [
             }
         }
     },
-    {
-        type: 'confirm',
-        name: 'confirmlicense',
-        message: 'Would you to select a license used?',
-    },
     {   
         type: 'list',
         name: 'license',
         message: 'Please select the license used in the application.',
         choices: ["MIT", "GPL", "BSD", "Apache"],
-        when: ({confirmlicense}) => {
-            if (confirmlicense) {
+        validate: value => {
+            if (value) {
                 return true;
             } else {
                 return false;

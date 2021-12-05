@@ -5,7 +5,7 @@ function renderLicenseBadge(license) {
     return `[![MIT badge](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
   }
   if (license === "BSD") {
-    return `[![BSD badge](https://img.shields.io/badge/License-BSD--orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`
+    return `[![BSD badge](https://img.shields.io/badge/License-BSD-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`
   }
   if (license === "GPL") {
     return `[![GPL badge](https://img.shields.io/badge/License-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
@@ -32,7 +32,7 @@ function renderLicenseBadge(license) {
 
 function renderInstallationSection(confirmInstructions, installation) {
   if (confirmInstructions === false) {
-    return "No installation instructions given"
+    return "No installation instructions were given."
   }
   else {
     return installation
@@ -67,13 +67,13 @@ ${renderLicenseBadge(data.license)}
 ### License:
   This project is licensed under: **${data.license}**
 
-### Contribution
+### Contribution:
   ${data.contribution}
 
 ### Tests:
   ${data.tests}
 
-#### Questions:
+#### Questions?:
   *Please contact me with any questions.*
 
 * Github: [${data.username}](https://github.com/${data.username})
