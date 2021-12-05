@@ -29,3 +29,6 @@ node index.js
 
 ## Demonstration Video
 [Video](https://watch.screencastify.com/v/anQdSHFGX6AiYg6Sb6CS)
+
+## Example of README
+![screenshot](./screenshot.png)
