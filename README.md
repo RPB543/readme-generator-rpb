@@ -1,38 +1,31 @@
+# readme-generator-rpb
 
-# fds
-  
-[![GPL badge](https://img.shields.io/badge/License-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+## Objective of Challenge
 
-## Table of Contents
-* [Description](#description)
-* [Installation](#installation)
-* [Usage](#usage)
-* [License](#license)
-* [Contribution](#contribution)
-* [Tests](#tests)
-* [Questions](#questions)
+* Generate a professional README file thru user prompts by invoking the following command:
 
-### Description:
-  fdsa
-    
-### Installation:
-  kdlsfds
+```
+node index.js
+```
 
-### Usage:
-  fdsafs
+## Acceptance Criteria
 
-### License:
-  This project is licensed under: **GPL**
+* Application accepts user input and a professional readme file is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+* Title of the project is displayed as the title of the README
+* Description, installation instructions, usage information, contribution guidelines, and test instructions are added to the file
+* When a badge is selected, it is added to the top of the page, has a section describing the type of license used, and includes a link to the license information
+* GitHub username and email address are added to the Questions section
+* Table of Contents operates as designed
 
-### Contribution
-  fgd
+## Tools used:
 
-### Tests:
-  fd
+* Inquirer package
+* Node
 
-#### Questions:
-  *Please contact me with any questions.*
+## Links 
 
-* Github: [fds](https://github.com/fds)
-* Email: afd@c.om
-    
+:relieved:[Repo](https://github.com/RPB543/readme-generator-rpb)\
+:smiley: [Github](https://github.com/RPB543)
+
+## Demonstration Video
+[Video](https://watch.screencastify.com/v/anQdSHFGX6AiYg6Sb6CS)
